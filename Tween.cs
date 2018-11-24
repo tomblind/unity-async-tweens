@@ -84,13 +84,13 @@ namespace AsyncTweens
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<float, C> tweener, C context, float to, float duration)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new FloatInterpolator(Easing.Linear));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new FloatInterpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<float, C> tweener, C context, float to, float duration, Func<float, float> easing)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new FloatInterpolator(easing));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new FloatInterpolator(easing));
 		}
 
 		/// <summary> Tween from the specified value back to the current value. </summary>
@@ -108,13 +108,13 @@ namespace AsyncTweens
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<float, C> tweener, C context, float from, float duration)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new FloatInterpolator(Easing.Linear));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new FloatInterpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<float, C> tweener, C context, float from, float duration, Func<float, float> easing)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new FloatInterpolator(easing));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new FloatInterpolator(easing));
 		}
 
 		/// <summary> Tween from the specified value to another. </summary>
@@ -152,19 +152,19 @@ namespace AsyncTweens
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 to, float duration)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector2Interpolator(Easing.Linear));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector2Interpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 to, float duration, Func<float, float> easing)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector2Interpolator(easing));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector2Interpolator(easing));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 to, float duration, Func<float, float> easingX, Func<float, float> easingY)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector2Interpolator(easingX, easingY));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector2Interpolator(easingX, easingY));
 		}
 
 		/// <summary> Tween from the specified value back to the current value. </summary>
@@ -188,19 +188,19 @@ namespace AsyncTweens
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 from, float duration)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector2Interpolator(Easing.Linear));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector2Interpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 from, float duration, Func<float, float> easing)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector2Interpolator(easing));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector2Interpolator(easing));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector2, C> tweener, C context, Vector2 from, float duration, Func<float, float> easingX, Func<float, float> easingY)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector2Interpolator(easingX, easingY));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector2Interpolator(easingX, easingY));
 		}
 
 		/// <summary> Tween from the specified value to another. </summary>
@@ -244,19 +244,19 @@ namespace AsyncTweens
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 to, float duration)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector3Interpolator(Easing.Linear));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector3Interpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 to, float duration, Func<float, float> easing)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector3Interpolator(easing));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector3Interpolator(easing));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 to, float duration, Func<float, float> easingX, Func<float, float> easingY, Func<float, float> easingZ)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new Vector3Interpolator(easingX, easingY, easingZ));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new Vector3Interpolator(easingX, easingY, easingZ));
 		}
 
 		/// <summary> Tween from the specified value back to the current value. </summary>
@@ -280,19 +280,19 @@ namespace AsyncTweens
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 from, float duration)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector3Interpolator(Easing.Linear));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector3Interpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 from, float duration, Func<float, float> easing)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector3Interpolator(easing));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector3Interpolator(easing));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Vector3, C> tweener, C context, Vector3 from, float duration, Func<float, float> easingX, Func<float, float> easingY, Func<float, float> easingZ)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new Vector3Interpolator(easingX, easingY, easingZ));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new Vector3Interpolator(easingX, easingY, easingZ));
 		}
 
 		/// <summary> Tween from the specified value to another. </summary>
@@ -342,25 +342,25 @@ namespace AsyncTweens
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Color, C> tweener, C context, Color to, float duration)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new ColorInterpolator(Easing.Linear));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new ColorInterpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Color, C> tweener, C context, Color to, float duration, Func<float, float> easing)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new ColorInterpolator(easing));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new ColorInterpolator(easing));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Color, C> tweener, C context, Color to, float duration, Func<float, float> easingRGB, Func<float, float> easingA)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new ColorInterpolator(easingRGB, easingA));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new ColorInterpolator(easingRGB, easingA));
 		}
 
 		/// <summary> Tween from the current value to a specified offset from that value. </summary>
 		public static Routine ToOffset<C>(this Tweener<Color, C> tweener, C context, Color to, float duration, Func<float, float> easingR, Func<float, float> easingG, Func<float, float> easingB, Func<float, float> easingA)
 		{
-			return tweener.To(context, to - tweener.GetValue(context), duration, new ColorInterpolator(easingR, easingG, easingB, easingA));
+			return tweener.To(context, tweener.GetValue(context) + to, duration, new ColorInterpolator(easingR, easingG, easingB, easingA));
 		}
 
 		/// <summary> Tween from the specified value back to the current value. </summary>
@@ -390,25 +390,25 @@ namespace AsyncTweens
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Color, C> tweener, C context, Color from, float duration)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new ColorInterpolator(Easing.Linear));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new ColorInterpolator(Easing.Linear));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Color, C> tweener, C context, Color from, float duration, Func<float, float> easing)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new ColorInterpolator(easing));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new ColorInterpolator(easing));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Color, C> tweener, C context, Color from, float duration, Func<float, float> easingRGB, Func<float, float> easingA)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new ColorInterpolator(easingRGB, easingA));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new ColorInterpolator(easingRGB, easingA));
 		}
 
 		/// <summary> Tween from the specified offset back to the current value. </summary>
 		public static Routine FromOffset<C>(this Tweener<Color, C> tweener, C context, Color from, float duration, Func<float, float> easingR, Func<float, float> easingG, Func<float, float> easingB, Func<float, float> easingA)
 		{
-			return tweener.From(context, from - tweener.GetValue(context), duration, new ColorInterpolator(easingR, easingG, easingB, easingA));
+			return tweener.From(context, tweener.GetValue(context) + from, duration, new ColorInterpolator(easingR, easingG, easingB, easingA));
 		}
 
 		/// <summary> Tween from the specified value to another. </summary>
