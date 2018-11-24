@@ -18,16 +18,16 @@ public class Foo : MonoBehaviour
     
     public async Routine Bar()
     {
-        //Tween self to 2,2,0 over 2 seconds
+        //Tween self to 1,1,0 over 2 seconds
         await Tween.Position.To(transform, new Vector3(1, 1, 0), 2);
         
-        //Tween back using QuadInOut easing
+        //Tween back using alternate easing
         await Tween.Position.To(transform, new Vector3(0, 0, 0), 2, Easing.QuadInOut);
         
         //Tween to a relative position from the current
         await Tween.Position.ToOffset(transform, new Vector3(-1, -1, 0), 2);
         
-        //Tween from a location back to the current
+        //Tween from a position to the current
         await Tween.Position.From(transform, new Vector3(2, 2, 0), 2);
         
         //Tween using an AnimationCurve for easing
