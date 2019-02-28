@@ -469,5 +469,8 @@ namespace AsyncTweens
 
 		/// <summary> Tilemaps.Tilemap.color tweener </summary>
 		public static Tweener<Color, Tilemap> TilemapColor { get; } = new Tweener<Color, Tilemap>((o) => o.color, (o, v) => o.color = v);
+
+		/// <summary> AudioSource.volume tweener </summary>
+		public static Tweener<float, AudioSource> Volume { get; } = new Tweener<float, AudioSource>((o) => o.volume, (o, v) => o.volume = v);
 	}
 }
