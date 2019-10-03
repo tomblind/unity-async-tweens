@@ -313,6 +313,68 @@ namespace AsyncTweens
 			return tweener.Full(context, from, to, duration, new Vector3Interpolator(easingX, easingY, easingZ));
 		}
 
+		//Quaternion extensions
+
+		/// <summary> Tween from the current value to the specified value. </summary>
+		public static Routine To<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion to, float duration)
+		{
+			return tweener.To(context, to, duration, new QuaternionInterpolator(Easing.Linear));
+		}
+
+		/// <summary> Tween from the current value to the specified value. </summary>
+		public static Routine To<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion to, float duration, Func<float, float> easing)
+		{
+			return tweener.To(context, to, duration, new QuaternionInterpolator(easing));
+		}
+
+		/// <summary> Tween from the current value to a specified offset from that value. </summary>
+		public static Routine ToOffset<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion to, float duration)
+		{
+			return tweener.To(context, tweener.GetValue(context) * to, duration, new QuaternionInterpolator(Easing.Linear));
+		}
+
+		/// <summary> Tween from the current value to a specified offset from that value. </summary>
+		public static Routine ToOffset<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion to, float duration, Func<float, float> easing)
+		{
+			return tweener.To(context, tweener.GetValue(context) * to, duration, new QuaternionInterpolator(easing));
+		}
+
+		/// <summary> Tween from the specified value back to the current value. </summary>
+		public static Routine From<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, float duration)
+		{
+			return tweener.From(context, from, duration, new QuaternionInterpolator(Easing.Linear));
+		}
+
+		/// <summary> Tween from the specified value back to the current value. </summary>
+		public static Routine From<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, float duration, Func<float, float> easing)
+		{
+			return tweener.From(context, from, duration, new QuaternionInterpolator(easing));
+		}
+
+		/// <summary> Tween from the specified offset back to the current value. </summary>
+		public static Routine FromOffset<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, float duration)
+		{
+			return tweener.From(context, tweener.GetValue(context) * Quaternion.Inverse(from), duration, new QuaternionInterpolator(Easing.Linear));
+		}
+
+		/// <summary> Tween from the specified offset back to the current value. </summary>
+		public static Routine FromOffset<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, float duration, Func<float, float> easing)
+		{
+			return tweener.From(context, tweener.GetValue(context) * Quaternion.Inverse(from), duration, new QuaternionInterpolator(easing));
+		}
+
+		/// <summary> Tween from the specified value to another. </summary>
+		public static Routine Full<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, Quaternion to, float duration)
+		{
+			return tweener.Full(context, from, to, duration, new QuaternionInterpolator(Easing.Linear));
+		}
+
+		/// <summary> Tween from the specified value to another. </summary>
+		public static Routine Full<C>(this Tweener<Quaternion, C> tweener, C context, Quaternion from, Quaternion to, float duration, Func<float, float> easing)
+		{
+			return tweener.Full(context, from, to, duration, new QuaternionInterpolator(easing));
+		}
+
 		//Color extensions
 
 		/// <summary> Tween from the current value to the specified value. </summary>
@@ -443,11 +505,17 @@ namespace AsyncTweens
 		/// <summary> Transform.eulerAngles tweener </summary>
 		public static Tweener<Vector3, Transform> EulerAngles { get; } = new Tweener<Vector3, Transform>((o) => o.eulerAngles, (o, v) => o.eulerAngles = v);
 
+		/// <summary> Transform.rotation tweener </summary>
+		public static Tweener<Quaternion, Transform> Rotation { get; } = new Tweener<Quaternion, Transform>((o) => o.rotation, (o, q) => o.rotation = q);
+
 		/// <summary> Transform.localPosition tweener </summary>
 		public static Tweener<Vector3, Transform> LocalPosition { get; } = new Tweener<Vector3, Transform>((o) => o.localPosition, (o, v) => o.localPosition = v);
 
 		/// <summary> Transform.localEulerAngles tweener </summary>
 		public static Tweener<Vector3, Transform> LocalEulerAngles { get; } = new Tweener<Vector3, Transform>((o) => o.localEulerAngles, (o, v) => o.localEulerAngles = v);
+
+		/// <summary> Transform.localRotation tweener </summary>
+		public static Tweener<Quaternion, Transform> LocalRotation { get; } = new Tweener<Quaternion, Transform>((o) => o.localRotation, (o, q) => o.localRotation = q);
 
 		/// <summary> Transform.localScale tweener </summary>
 		public static Tweener<Vector3, Transform> LocalScale { get; } = new Tweener<Vector3, Transform>((o) => o.localScale, (o, v) => o.localScale = v);

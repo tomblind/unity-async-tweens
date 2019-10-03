@@ -101,6 +101,21 @@ namespace AsyncTweens
 		}
 	}
 
+	public struct QuaternionInterpolator : IInterpolator<Quaternion>
+	{
+		private Func<float, float> easing;
+
+		public QuaternionInterpolator(Func<float, float> easing)
+		{
+			this.easing = easing;
+		}
+
+		public Quaternion Interpolate(Quaternion startValue, Quaternion endValue, float t)
+		{
+			return Quaternion.SlerpUnclamped(startValue, endValue, easing(t));
+		}
+	}
+
 	public struct ColorInterpolator : IInterpolator<Color>
 	{
 		private Func<float, float> easingR;
