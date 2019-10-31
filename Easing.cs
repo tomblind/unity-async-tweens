@@ -25,8 +25,53 @@ using UnityEngine;
 
 namespace AsyncTweens
 {
-	public static class Easing
+	[Serializable]
+	public class Easing
 	{
+		public enum Type
+		{
+			Linear = 0,
+			AnimationCurve,
+			SineIn,
+			SineOut,
+			SineInOut,
+			QuadIn,
+			QuadOut,
+			QuadInOut,
+			CubicIn,
+			CubicOut,
+			CubicInOut,
+			QuartIn,
+			QuartOut,
+			QuartInOut,
+			QuintIn,
+			QuintOut,
+			QuintInOut,
+			ExpoIn,
+			ExpoOut,
+			ExpoInOut,
+			CircIn,
+			CircOut,
+			CircInOut,
+			BackIn,
+			BackOut,
+			BackInOut,
+			ElasticIn,
+			ElasticOut,
+			ElasticInOut,
+			BounceIn,
+			BounceOut,
+			BounceInOut,
+		}
+
+		public Type type;
+		public AnimationCurve curve;
+
+		public static implicit operator Func<float, float>(Easing easing)
+		{
+			return (easing.type == Type.AnimationCurve) ? easing.curve.Evaluate : func[(int)easing.type];
+		}
+
 		public static float Linear(float t)
 		{
 			return t;
@@ -287,5 +332,41 @@ namespace AsyncTweens
 		{
 			return 1 - EaseOutBounce(1 - t);
 		}
+
+		private static readonly Func<float, float>[] func = new Func<float, float>[]
+		{
+			Linear,
+			null,
+			SineIn,
+			SineOut,
+			SineInOut,
+			QuadIn,
+			QuadOut,
+			QuadInOut,
+			CubicIn,
+			CubicOut,
+			CubicInOut,
+			QuartIn,
+			QuartOut,
+			QuartInOut,
+			QuintIn,
+			QuintOut,
+			QuintInOut,
+			ExpoIn,
+			ExpoOut,
+			ExpoInOut,
+			CircIn,
+			CircOut,
+			CircInOut,
+			BackIn,
+			BackOut,
+			BackInOut,
+			ElasticIn,
+			ElasticOut,
+			ElasticInOut,
+			BounceIn,
+			BounceOut,
+			BounceInOut,
+		};
 	}
 }
